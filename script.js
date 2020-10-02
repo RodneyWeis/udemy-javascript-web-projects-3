@@ -16,14 +16,14 @@ async function getQuote() {
 		const data = await response.json()
 		console.log(data)
 		// If Author is an empty string, populate with 'Unknown'
-		authorText.innerText = data.author || 'Unknown'
-		// Reduce font size for quotes > 120 characters
-		if (data.quoteText.length > 60) {
-			quoteText.classList.add('long-quote')
-		} else {
-			quoteText.classList.remove('long-quote')
-		}
-		quoteText.innerText = data.text
+		authorText.innerText = data.quoteAuthor || 'Unknown'
+		// // Reduce font size for quotes > 120 characters
+		// if (data.quoteText.length > 60) {
+		// 	quoteText.classList.add('long-quote')
+		// } else {
+		// 	quoteText.classList.remove('long-quote')
+		// }
+		quoteText.innerText = data.quoteText
 	} catch (error) {
 		console.log('There was an error: ', error)
 		getQuote()
